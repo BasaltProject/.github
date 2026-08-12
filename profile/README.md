@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="profile/basalt-logo.png" alt="Basalt" width="360">
+  <img src="basalt-logo.png" alt="Basalt" width="360">
 </p>
 
 <h2 align="center">Basalt</h2>
