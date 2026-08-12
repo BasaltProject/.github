@@ -33,7 +33,7 @@ Two rules decide everything else:
 
 | | |
 |---|---|
-| [**Server**](https://github.com/BasaltProject/Server) | The Minecraft server: worlds, entities, gameplay, and the BSMod plugin API |
+| [**Server**](https://github.com/BasaltProject/Server) | The Minecraft server: worlds, entities, gameplay, and the plugin API |
 | [**Proxy**](https://github.com/BasaltProject/Proxy) | The proxy: one address in front of many servers, and it works with any of them, Basalt or not |
 | [**Wire**](https://github.com/BasaltProject/Wire) | The network layer both of them build on. One implementation of the protocol, not two |
 | [**Website**](https://github.com/BasaltProject/Website) | The project site, at [basaltmc.org](https://basaltmc.org) |
@@ -47,8 +47,8 @@ README, and none of them rounds up.
 
 ## Plugins
 
-Plugins are written in Lua and packaged as single files: `.bsmod` for the server,
-`.bpmod` for the proxy. They run sandboxed with an instruction budget, so a
+Plugins are written in Lua and packaged as single files: `.bspkg` for the server,
+`.bppkg` for the proxy. They run sandboxed with an instruction budget, so a
 broken plugin cannot take a server down, and the same runtime ships everywhere
 Basalt runs with no native Lua dependency to install.
 
