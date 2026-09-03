@@ -5,18 +5,18 @@
 <h2 align="center">Basalt</h2>
 
 <p align="center">
-  <strong>Minecraft server software rewritten from scratch in Kotlin/Native. No JVM.</strong>
+  <strong>Minecraft server software rewritten from scratch in C++23. No JVM.</strong>
 </p>
 
 <p align="center">
   <img alt="Minecraft" src="https://img.shields.io/badge/Minecraft-26.2-62B47A?logo=minecraft&logoColor=white">
-  <img alt="Kotlin" src="https://img.shields.io/badge/Kotlin%2FNative-2.4.10-7F52FF?logo=kotlin&logoColor=white">
+  <img alt="C++" src="https://img.shields.io/badge/C%2B%2B-23-00599C?logo=cplusplus&logoColor=white">
   <img alt="License" src="https://img.shields.io/badge/license-GPL--3.0-green">
   <img alt="Website" src="https://img.shields.io/badge/basaltmc.org-62B47A">
 </p>
 
 Basalt is a complete reimplementation of Minecraft: Java Edition server software,
-written entirely in Kotlin/Native and shipped as native binaries. There is no JVM
+written entirely in C++23 and shipped as native binaries. There is no JVM
 anywhere in the runtime: no bundled JRE, no embedded VM, no hidden Java process.
 
 Two rules decide everything else:
@@ -50,7 +50,8 @@ README, and none of them rounds up.
 Plugins are written in Lua and packaged as single files: `.bspkg` for the server,
 `.bppkg` for the proxy. They run sandboxed with an instruction budget, so a
 broken plugin cannot take a server down, and the same runtime ships everywhere
-Basalt runs with no native Lua dependency to install.
+Basalt runs: the official Lua, built into the binary, with nothing to install
+alongside it.
 
 ## License
 
