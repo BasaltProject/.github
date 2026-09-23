@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  <img alt="Minecraft" src="https://img.shields.io/badge/Minecraft-26.2-62B47A?logo=minecraft&logoColor=white">
+  <img alt="Minecraft" src="https://img.shields.io/badge/Minecraft-26.3-62B47A?logo=minecraft&logoColor=white">
   <img alt="C++" src="https://img.shields.io/badge/C%2B%2B-23-00599C?logo=cplusplus&logoColor=white">
   <img alt="License" src="https://img.shields.io/badge/license-GPL--3.0-green">
   <img alt="Website" src="https://img.shields.io/badge/basaltmc.org-62B47A">
