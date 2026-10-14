@@ -36,14 +36,16 @@ Two rules decide everything else:
 | [**Server**](https://github.com/BasaltProject/Server) | The Minecraft server: worlds, entities, gameplay, and the plugin API |
 | [**Proxy**](https://github.com/BasaltProject/Proxy) | The proxy: one address in front of many servers, and it works with any of them, Basalt or not |
 | [**Wire**](https://github.com/BasaltProject/Wire) | The network layer both of them build on. One implementation of the protocol, not two |
+| [**Shim**](https://github.com/BasaltProject/Shim) | A lightweight, embeddable JVM in C++ targeting modern Java LTS releases, forked from Avian |
 | [**Website**](https://github.com/BasaltProject/Website) | The project site, at [basaltmc.org](https://basaltmc.org) |
 
 ## Status
 
 **Early development.** Nothing here is ready to run a server anyone depends on.
 The server accepts real clients, generates worlds and streams chunks; the proxy
-has just been started. Each repository keeps an honest status table in its own
-README, and none of them rounds up.
+has just been started; Shim modernizes its VM core toward Java 25 LTS. Each
+repository keeps an honest status table in its own README, and none of them
+rounds up.
 
 ## Plugins
 
@@ -55,7 +57,8 @@ alongside it.
 
 ## License
 
-Basalt is distributed under the GNU General Public License v3.0.
+Basalt is distributed under the GNU General Public License v3.0 (Shim and Website
+are MIT; see individual repositories).
 
 Basalt is not affiliated with Mojang Studios or Microsoft. Minecraft is a
 trademark of Mojang Studios.
