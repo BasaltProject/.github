@@ -21,8 +21,10 @@
 </p>
 
 Basalt is a complete reimplementation of Minecraft: Java Edition server software,
-written entirely in C++23 and shipped as native binaries. There is no JVM
-anywhere in the runtime: no bundled JRE, no embedded VM, no hidden Java process.
+written entirely in C++23 and shipped as native binaries. The core needs no JVM
+installed on the host. Bukkit, Spigot and Paper plugins run through
+[Shim](https://github.com/BasaltProject/Shim), a JVM in C++ that is built into the
+binary and only starts when a Java plugin is present.
 
 Two rules decide everything else:
 
@@ -30,7 +32,7 @@ Two rules decide everything else:
   official one. Same seed, same world. Same drops, same damage, same redstone,
   bugs included. Parity is the acceptance criterion for every system, not a
   long-term aspiration.
-- **No JVM, no exceptions.** Not for a feature, not for compatibility, not for
+- **No external JVM.** Not for a feature, not for compatibility, not for
   convenience. Where a Java library would normally be reached for, the
   functionality is written instead.
 
@@ -38,27 +40,37 @@ Two rules decide everything else:
 
 | | |
 |---|---|
-| [**Server**](https://github.com/BasaltProject/Server) | The Minecraft server: worlds, entities, gameplay, and the plugin API |
+| [**Server**](https://github.com/BasaltProject/Server) | The Minecraft server: worlds, entities, gameplay, Lua plugins, Bukkit plugins through Shim, and a REST/WebSocket management API |
 | [**Proxy**](https://github.com/BasaltProject/Proxy) | The proxy: one address in front of many servers, and it works with any of them, Basalt or not |
 | [**Wire**](https://github.com/BasaltProject/Wire) | The network layer both of them build on. One implementation of the protocol, not two |
 | [**Shim**](https://github.com/BasaltProject/Shim) | A lightweight, embeddable JVM in C++ targeting modern Java LTS releases, forked from Avian |
+| [**Kiln**](https://github.com/BasaltProject/Kiln) | Compiler and verifier for Lua plugins |
+| [**DevTools**](https://github.com/BasaltProject/DevTools) | Editor extensions and API autocompletion for plugin authors |
+| [**Metamorph**](https://github.com/BasaltProject/Metamorph) | World conversion between Anvil and Linear, and upgrades from older versions |
+| [**Quarry**](https://github.com/BasaltProject/Quarry) | Extracts the data Basalt needs from the official server jar |
+| [**Swarm**](https://github.com/BasaltProject/Swarm) | Bot swarm and stress testing for Minecraft servers |
+| [**ServerPlugin-Example**](https://github.com/BasaltProject/ServerPlugin-Example) | A reference plugin for the Server plugin API |
 | [**Website**](https://github.com/BasaltProject/Website) | The project site, at [basaltmc.org](https://basaltmc.org) |
 
 ## Status
 
-**Early development.** Nothing here is ready to run a server anyone depends on.
-The server accepts real clients, generates worlds and streams chunks; the proxy
-has just been started; Shim modernizes its VM core toward Java 25 LTS. Each
-repository keeps an honest status table in its own README, and none of them
-rounds up.
+**Early development.** Most of vanilla's gameplay is in place in the server and
+Java plugins run, but some systems are still incomplete and little of it has seen
+long-term use, so back up your worlds before trusting it with a public server.
+Older Java clients and Bedrock clients are served through translation layers that
+are still maturing. The proxy relays real connections and switches servers, but
+has only been exercised on Linux with bots. Shim modernizes its VM core toward
+Java 25 LTS. Each repository keeps an honest status in its own README, and none
+of them rounds up.
 
 ## Plugins
 
-Plugins are written in Lua and packaged as single files: `.bspkg` for the server,
-`.bppkg` for the proxy. They run sandboxed with an instruction budget, so a
-broken plugin cannot take a server down, and the same runtime ships everywhere
+Native plugins are written in Lua and packaged as single files: `.bspkg` for the
+server, `.bppkg` for the proxy. They run sandboxed with an instruction budget, so
+a broken plugin cannot take a server down, and the same runtime ships everywhere
 Basalt runs: the official Lua, built into the binary, with nothing to install
-alongside it.
+alongside it. Kiln and DevTools cover building and writing them. The server also
+runs Bukkit, Spigot and Paper plugins through Shim.
 
 ## License
 
